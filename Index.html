@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Srivastava-Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script>
+        // Typing effect for the introduction text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Smooth scroll to sections
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // On page load, start typing effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const introElement = document.getElementById('intro-text');
+            const introText = "Hi, I'm Harsh Srivastava | Mtech (CSE) @ NIT Jamshedpur | A Passionate Software Engineer Dedicated To Creating Innovative Solutions Through Code. Welcome To My Digital Space!";
+            typeWriter(introElement, introText);
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-on-scroll').forEach(el => observer.observe(el));
+        });
+    </script>
+    <style>
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #594370 100%);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-indigo-600">My Portfolio</h1>
+            <ul class="flex space-x-6">
+                <li><button onclick="scrollToSection('hero')" class="hover:text-indigo-600">Home</button></li>
+                <li><button onclick="scrollToSection('about')" class="hover:text-indigo-600">About</button></li>
+                <li><button onclick="scrollToSection('skills')" class="hover:text-indigo-600">Skills</button></li>
+                <li><button onclick="scrollToSection('projects')" class="hover:text-indigo-600">Projects</button></li>
+                <li><button onclick="scrollToSection('contact')" class="hover:text-indigo-600">Contact</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg text-white py-20 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-4 text-center fade-on-scroll">
+            <div class="mb-8">
+                <img src="Intro.jpg" alt="Professional headshot of a smiling software engineer in a modern office setting with warm lighting and subtle background bokeh featuring code snippets" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg" />
+            </div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">Welcome</h2>
+            <p id="intro-text" class="text-lg md:text-xl mb-8"></p>
+            <button onclick="scrollToSection('about')" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300">Learn More</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-on-scroll">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center fade-on-scroll">
+                <div>
+                    <img src="Portfolio.jpg" alt="Dedicated coder at work in a cozy home office with dual monitors displaying clean code, ergonomic chair, and inspiring cityscape view through large windows" class="w-full rounded-lg shadow-lg" />
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
+                    <p class="text-gray-700 mb-4">I'm a passionate developer with a knack for turning ideas into reality through code. With years of experience in various technologies, I thrive on solving complex problems and creating user-friendly applications. My journey in tech started with curiosity and has evolved into a career dedicated to innovation and continuous learning.</p>
+                    <p class="text-gray-700">When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-on-scroll">Skills & Expertise</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center fade-on-scroll">
+                    <i class='bx bx-code text-4xl text-indigo-600 mb-4'></i>
+                    <h3 class="text-xl font-semibold mb-2">WEB Development</h3>
+                    <p class="text-gray-700">Proficient in HTML, CSS, JavaScript, and modern frameworks like React and Vue.js.</p>
+                </div>
+                <div class="text-center fade-on-scroll">
+                    <i class='bx bx-data text-4xl text-indigo-600 mb-4'></i>
+                    <h3 class="text-xl font-semibold mb-2">Backend Development</h3>
+                    <p class="text-gray-700">Experienced with Node.js, Python, and databases like MongoDB and PostgreSQL.</p>
+                </div>
+                <div class="text-center fade-on-scroll">
+                    <i class='bx bx-mobile text-4xl text-indigo-600 mb-4'></i>
+                    <h3 class="text-xl font-semibold mb-2">Mobile Development</h3>
+                    <p class="text-gray-700">Skilled in React Native and Flutter for cross-platform mobile applications.</p>
+                </div>
+                <div class="text-center fade-on-scroll">
+                    <i class='bx bx-brain text-4xl text-indigo-600 mb-4'></i>
+                    <h3 class="text-xl font-semibold mb-2">AI & Machine Learning</h3>
+                    <p class="text-gray-700">Knowledgeable in TensorFlow, PyTorch, and data analysis with Python.</p>
+                </div>
+                <div class="text-center fade-on-scroll">
+                    <i class='bx bx-cloud text-4xl text-indigo-600 mb-4'></i>
+                    <h3 class="text-xl font-semibold mb-2">Cloud Computing</h3>
+                    <p class="text-gray-700">Familiar with AWS, Azure, and deployment strategies using Docker and Kubernetes.</p>
+                </div>
+                <div class="text-center fade-on-scroll">
+                    <i class='bx bx-paint text-4xl text-indigo-600 mb-4'></i>
+                    <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+                    <p class="text-gray-700">Passionate about creating intuitive user interfaces with tools like Figma and Adobe XD.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-on-scroll">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg fade-on-scroll">
+                    <img src="Myntra.png" alt="Interactive weather app interface showing current conditions, forecast, and location-based weather data with animated clouds and sun" class="w-full h-48 object-cover"   />  
+                    <div class="p-6">
+                    
+                        <h3 class="text-xl font-semibold mb-2">Myntra-Clone</h3>
+                        <p class="text-gray-700 mb-4">A full-stack e-commerce solution built with React and Node.js, featuring user authentication, payment integration, and admin dashboard.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-indigo-600"><i class='bx bx-link-external'></i> Live Demo</span>
+                            <span class="text-indigo-600"><i class='bx bx-code'></i> Source Code</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg fade-on-scroll">
+                    <img src="Weather.jpg" alt="Screenshots of a modern weather dashboard displaying current weather conditions, forecasts, and animated weather icons with a clean user interface" class="w-full h-48 object-cover" />  
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Weather Dashboard</h3>
+                        <p class="text-gray-700 mb-4">A responsive weather application using APIs to provide current weather and forecasts with beautiful animations and location services.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-indigo-600"><i class='bx bx-link-external'></i> Live Demo</span>
+                            <span class="text-indigo-600"><i class='bx bx-code'></i> Source Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-on-scroll">Get In Touch</h2>
+            <div class="max-w-md mx-auto fade-on-scroll">
+                <form class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 mb-2">Name</label>
+                        <input type="text" id="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" rows="4" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300">Send Message</button>
+                </form>
+                <div class="mt-6 text-center">
+                    <p class="text-gray-700 mb-2">Or connect with me on:</p>
+                    <div class="flex justify-center space-x-4">
+                        <i>
+                            <a href="https://www.linkedin.com/in/harsh-srivastava-380185221/" target="_blank" class='bx bxl-linkedin text-2xl text-indigo-600 hover:text-indigo-800 cursor-pointer'></a></i>
+                        <i>
+                            <a href="https://github.com/HarshSrivastava-alt/HarshSrivastava" target="_blank" class='bx bxl-github text-2xl text-indigo-600 hover:text-indigo-800 cursor-pointer'></a></i>
+                        <i>
+                            <a href="https://www.instagram.com/haarshh_nitian/" target="_blank" class='bx bxl-instagram text-2xl text-indigo-600 hover:text-indigo-800 cursor-pointer'></a></i>
+                        <i>
+                            <a href="https://twitter.com/HarshSrivastav15" target="_blank" class='bx bxl-twitter text-2xl text-indigo-600 hover:text-indigo-800 cursor-pointer'></a>
+                        </i>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Harsh Srivastava. All rights reserved. Bootstrapped with passion and code.</p>
+        </div>
+    </footer>
+</body>
+</html>
+</content>
+</create_file>
